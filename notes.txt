@@ -1,0 +1,26 @@
+1) Training file: training1.csv.arff
+   validation file: validation1.csv.arff
+
+Input: 
+ . training set
+ . validation set
+ . Confidence Factor: interval(0, 0.5001, 0.025)
+Output:
+ . size tree: # leaf, #nodes
+ . performance over trainign and validation
+
+
+java -Xmx256m -classpath /usr/share/java/weka.jar weka.classifiers.trees.J48 -t training1.csv.arff -T validation1.csv.arff -C 0.25
+
+gabo@gabo:~/sources/repos/wine-decission-tree/bin$ pwd
+/home/gabo/sources/repos/wine-decission-tree/bin
+./generateInputExc1.py ../data/training1.csv.arff ../data/validation1.csv.arff ../output/exc1/ 
+./processExc1.py ../output/exc1/tree_conf_0.*
+-------------
+
+
+2) Introduced 10% of unkown data in training and validation. Unknown data were introduced into the columns: wine type, PH and alcohol.
+gabo@gabo:~/sources/repos/wine-decission-tree/bin$ ./introduceUnkown.py ../data/training1.csv.arff 0,9,11  10 > ../data/training2.csv.arff 
+gabo@gabo:~/sources/repos/wine-decission-tree/bin$ ./introduceUnkown.py ../data/validation1.csv.arff 0,9,11  10 > ../data/validation2.csv.arff 
+
+
