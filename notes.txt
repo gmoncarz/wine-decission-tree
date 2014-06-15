@@ -23,4 +23,27 @@ gabo@gabo:~/sources/repos/wine-decission-tree/bin$ pwd
 gabo@gabo:~/sources/repos/wine-decission-tree/bin$ ./introduceUnkown.py ../data/training1.csv.arff 0,9,11  10 > ../data/training2.csv.arff 
 gabo@gabo:~/sources/repos/wine-decission-tree/bin$ ./introduceUnkown.py ../data/validation1.csv.arff 0,9,11  10 > ../data/validation2.csv.arff 
 
+. created the function ./ind_faltantes.py as in statement
+. examples:
+ ./ind_faltantes.py ../data/training2.csv.arff 20  modaclase
+ ./ind_faltantes.py ../data/training2.csv.arff 20  moda
 
+time ./generateInputExc2.py ../data/training2.csv.arff ../data/validation2.csv.arff ../output/exc2/ > ../output/exc2/summary.csv
+
+real    27m33.059s
+user    51m38.912s
+sys     1m17.952s
+
+3)
+java -Xmx256m -classpath /usr/share/java/weka.jar weka.filters.unsupervised.attribute.AddNoise -P 10 < ../data/training1.csv.arff
+
+./ind_ruido.py ../data/training1.csv.arff 10
+
+gabo@gabo:~/sources/repos/wine-decission-tree/bin$ time ./generateInputExc3.py ../data/training1.csv.arff ../data/validation1.csv.arff ../output/exc3/ > ../output/exc3/summary.out
+
+real    294m25.530s
+user    539m9.708s
+sys     13m5.760s
+
+
+4) Discretize only ph and alcohol, because is the 2 attributes more similar to a normal, that add more info to the problem.
