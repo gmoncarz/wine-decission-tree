@@ -47,3 +47,10 @@ sys     13m5.760s
 
 
 4) Discretize only ph and alcohol, because is the 2 attributes more similar to a normal, that add more info to the problem.
+. 3 methods used: equal-width, equal-frequency and 1 suppervized.
+gabo@gabo:~/sources/repos/wine-decission-tree/bin$ time ./generateInputExc4.py ../data/training4.csv.arff ../output/exc4/ > ../output/exc4/summary.out
+
+real    13m58.714s
+user    26m4.472s
+sys     0m40.688s
+
